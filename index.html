@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JPMM Login</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <style>
+            html {height:100%;overflow:hidden;}
+            body {height:100%;margin:0}
+            #container {display:none}
+            #chatFrame {height:100%; width:100%}
+        </style>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.atmosphere.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript">
+            var endpointUri = 'naresh.vakadani@jpmorgan.com';
+            /*function login(){
+             $("#login").hide();
+             $('.progress-bar').removeAttr('class').addClass('progress-bar blue shine').show();
+             $('#msg').html('Processing . . . . .').css('left', '170px');
+             subscribe();
+             }
+             
+             function startChat(){
+             var left = screen.width - 720;
+             var top = 0;
+             if (typeof (chatWindow) == 'undefined' || chatWindow.closed) {
+             chatWindow =   window.open('chat.html', 'chatFrame', 'height=470, width=700, left=' + left + ' ,top=' + top);
+             }
+             chatWindow.focus();	
+             }*/
+
+
+            $(document).ready(function() {
+                /*var channel = encryptChannel(endpointUri); // get encrypted channel: this can be remove
+                 login(); */
+
+                subscribe();
+
+                $('#imchat', window.parent.document).click(function() {
+                    var left = screen.width - 720;
+                    var top = 0;
+                    if (typeof (chatWindow) == 'undefined' || chatWindow.closed) {
+                        chatWindow = window.open('chat.html', 'chat', 'height=470, width=700, left=' + left + ' ,top=' + top);
+                    }
+                    chatWindow.focus();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <h1> Chat Application </h1>
+            <div id="login">Login</div>
+            <div id="chat">Launch Chat</div>
+            <div id="logout">Logout</div>
+            <div class="progress-bar blue shine">
+                <span style="width: 100%;"></span>
+                <div id="msg">Processing . . . . .</div>
+            </div>
+        </div>
+        <!-- <iframe name="chatFrame" id="chatFrame"  frameborder="0"></iframe> -->
+    </body>
+</html>
